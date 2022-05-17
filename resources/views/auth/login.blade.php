@@ -11,7 +11,7 @@
 </head>
 <body>
     <section class="vh-100">
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color:#002368;">
             <div class="row">
             <div class="col-lg-6 text-black">
         
@@ -24,12 +24,12 @@
         
                 <form style="width: 39rem;" action="{{ route('login.custom') }}" method="POST">
                     @csrf
-                    <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                    <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color:white;">
                         Log in
                     </h3>
         
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label" style="color:white;">Email address</label>
                         <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">We will never share your email with anyone else.</div>
                         @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="exampleInputPassword1" class="form-label" style="color:white;">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
                         @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -46,7 +46,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <br>
                     <br>
-                    <p>Do not have an account? <a href="{{ route('register-user') }}" class="link-info">Register here</a></p>
+                    <p style="color:white;">Do not have an account? <a href="{{ route('register-user') }}" class="link-info" style="color:white;">Register here</a></p>
         
                 </form>
         
