@@ -12,4 +12,7 @@ class Furniture extends Model
     public function categories(){
         return $this->belongsTo(Categories::class);
     }
+    public function ImageFurniture(){
+        return $this->hasMany(ImageFurniture::class);
+    }
 }
