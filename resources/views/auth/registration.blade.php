@@ -20,29 +20,26 @@
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                         <form style="width: 39rem;" action="{{ route('register.custom') }}" method="POST">
                             @csrf
-                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing:1px;color:white;">
-                                <b>
-                                    Register
-                                </b>
+                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color:white;">
+                                {{__('login.title2')}}
                             </h3>
                             <div class="mb-3">
-                                <label for="name" class="form-label" style="color:white;">Name</label>
+                                <label for="name" class="form-label" style="color:white;">{{__('login.profile.name')}}</label>
                                 <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
-                                <div id="nameHelp" class="form-text">We will never share your email with anyone else.</div>
                                 @if ($errors->has('name'))
                                     <span class="text-danger">{{ $errors->first('name') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label" style="color:white;">Email address</label>
+                                <label for="email" class="form-label" style="color:white;">{{__('login.profile.email')}}</label>
                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We will never share your email with anyone else.</div>
+                                <div id="emailHelp" class="form-text">{{__('login.profile.messmail')}}</div>
                                 @if ($errors->has('email'))
                                     <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label" style="color:white;">Password</label>
+                                <label for="password" class="form-label" style="color:white;">{{__('login.profile.pw')}}</label>
                                 <input type="password" class="form-control" id="password" name="password">
                                 @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -51,7 +48,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <br>
                             <br>
-                            <p style="color:white;">Already have an account? <a href="{{ route('login') }}" class="link-info" style="color:white;">Register here</a></p>
+                            <p style="color:white;">{{__('login.toLogin')}} <a href="{{ route('login') }}" class="link-info" style="color:white;">{{__('login.linkLogin')}}</a></p>
                         </form>
                     </div>
                 </div>
