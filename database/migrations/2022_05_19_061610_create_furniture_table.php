@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('furniture', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique()->nullable();
             $table->foreignId('category_id');
             $table->text('desc');
             $table->decimal('price', $precision=10, $scale=2);
