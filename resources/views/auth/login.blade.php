@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="/css/app.css" rel="stylesheet">
     <title>Login</title>
     <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
@@ -17,11 +17,20 @@
                     <div class="px-5 ms-xl-4">
                         <img src="/logopbkk.png" class="img-fluid" alt="Responsive image">
                     </div>
+                    @if (Session::has('failed_login'))
+                        <div class="alert alert-danger alert-dismissible fade show px-5 ms-xl-4" role="alert">
+                            <strong><i class="fa fa-check-circle"></i>Failed!</strong>
+                                <br>
+                                Wrong Password or Username!
+                        </div>
+                    @endif
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                         <form style="width: 39rem;" action="{{ route('login.custom') }}" method="POST">
                             @csrf
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color:white;">
-                                Log in
+                                <b>
+                                    Log in
+                                </b>
                             </h3>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label" style="color:white;">Email address</label>
