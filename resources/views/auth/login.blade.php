@@ -28,13 +28,9 @@
                         <form style="width: 39rem;" action="{{ route('login.custom') }}" method="POST">
                             @csrf
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color:white;">
-<<<<<<< HEAD
                                 <b>
-                                    Log in
+                                    {{__('login.title')}}
                                 </b>
-=======
-                                {{__('login.title')}}
->>>>>>> 8ff4bd5c34d4d2922f6cb8890d5cc4ef5c9ffadb
                             </h3>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label" style="color:white;">{{__('login.profile.email')}}</label>

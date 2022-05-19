@@ -21,7 +21,9 @@
                         <form style="width: 39rem;" action="{{ route('register.custom') }}" method="POST">
                             @csrf
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color:white;">
-                                {{__('login.title2')}}
+                                <b>
+                                    {{__('login.title2')}}
+                                </b>
                             </h3>
                             <div class="mb-3">
                                 <label for="name" class="form-label" style="color:white;">{{__('login.profile.name')}}</label>
@@ -48,11 +50,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <br>
                             <br>
-<<<<<<< HEAD
-                            <p style="color:white;">Already have an account? <a href="{{ route('login') }}" class="link-info" style="color:white;">Login here</a></p>
-=======
                             <p style="color:white;">{{__('login.toLogin')}} <a href="{{ route('login') }}" class="link-info" style="color:white;">{{__('login.linkLogin')}}</a></p>
->>>>>>> 8ff4bd5c34d4d2922f6cb8890d5cc4ef5c9ffadb
                         </form>
                     </div>
                 </div>
