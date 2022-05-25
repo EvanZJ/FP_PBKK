@@ -11,7 +11,7 @@
 </head>
 <body>
     <section class="vh-100">
-        <div class="container-fluid" style="background-color:#002368;">
+        <div class="container-fluid" style="background-color:#222D64;">
             <div class="row">
                 <div class="col-lg-5 text-black">
                     <div class="px-5 ms-xl-4">

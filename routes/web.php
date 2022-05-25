@@ -26,4 +26,8 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
+Route::get('things', function(){
+    return view('testing');
+});
+
 Route::get('login/{locale}', [LocalizationController::class, 'index']);

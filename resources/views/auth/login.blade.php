@@ -11,13 +11,14 @@
 </head>
 <body>
     <section class="vh-100">
-        <div class="container-fluid" style="background-color:#002368;">
+        <div class="container-fluid" style="background-color:#222D64;">
             <div class="row">
                 <div class="col-lg-5 text-black">
                     <div class="px-5 ms-xl-4">
                         <img src="/logopbkk.png" class="img-fluid" alt="Responsive image">
                     </div>
                     @if (Session::has('failed_login'))
+                        <br>
                         <div class="alert alert-danger alert-dismissible fade show px-5 ms-xl-4" role="alert">
                             <strong><i class="fa fa-check-circle"></i>Failed!</strong>
                                 <br>
