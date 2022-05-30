@@ -23,23 +23,23 @@
                             <span class="d-none d-sm-inline mx-1 " style="color:#DCCE23">{{ $name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="color:#DCCE23">
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">{{__('login.navSetting')}}</a></li>
+                            <li><a class="dropdown-item" href="#">{{__('login.navProfile')}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('signout') }}">Sign out</a></li>
+                            <li><a class="dropdown-item" href="{{ route('signout') }}">{{__('login.navSignOut')}}</a></li>
                         </ul>
                     </div>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link align-middle px-0"> 
-                                <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">Home</span>
+                                <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navHome')}}</span>
                             </a>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">Products</span> </a>
+                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navProduct')}}</span> </a>
                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 @foreach ($categories as $category)
                                     <li class="w-100">
@@ -50,20 +50,20 @@
                         </li>
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">Orders</span></a>
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navOrder')}}</span></a>
                         </li>
                         <li>
                             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">Language</span></a>
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navLang')}}</span></a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> 
+                                    <a href="/login/id" class="nav-link px-0"> 
                                         <img src="/Flag_of_Indonesia.svg.png" alt="" width="25" height="15" class="d-inline-block align-text-top">
                                         <span class="d-none d-sm-inline" style="color:#DCCE23">ID</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0"> 
+                                    <a href="/login/en" class="nav-link px-0"> 
                                         <img src="/Flag_of_Great_Britain_(1707–1800).svg.png" alt="" width="25" height="15" class="d-inline-block align-text-top">
                                         <span class="d-none d-sm-inline" style="color:#DCCE23">EN</span>
                                     </a>
@@ -90,7 +90,7 @@
                         </li>  --}}
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">History</span> </a>
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navHistory')}}</span> </a>
                         </li>
                     </ul>
                     <hr>

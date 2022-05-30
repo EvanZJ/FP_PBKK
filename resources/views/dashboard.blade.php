@@ -33,8 +33,8 @@
         </button>
     </div>
     <br>
-    <h1>Welcome!</h1>
-    <h3>These are our products, hope you enjoy</h3>
+    <h1>{{__('login.dashComp')}}</h1>
+    <h3>{{__('login.dashComp1')}}</h3>
     <hr>
     @foreach ($categories as $category)
       <div class="card bg-dark text-black">
