@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
@@ -58,7 +60,12 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            $categories = Categories::all();
+            $name = auth()->user()->name;
+            return view('dashboard',[
+                'name' => $name,   
+                'categories' => $categories
+            ]);
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');
