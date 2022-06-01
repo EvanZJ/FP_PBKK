@@ -2,6 +2,13 @@ body {
     font-family:'SF Pro Design',sans-serif;
 }
 
-.navbar{
-    font-family:'SF Pro Design',sans-serif;
+.furniture-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+a{
+    text-decoration:none;
 }

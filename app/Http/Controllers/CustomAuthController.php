@@ -66,6 +66,7 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
+        'type' => 1,
         'password' => Hash::make($data['password'])
       ]);
     }    
@@ -75,8 +76,10 @@ class CustomAuthController extends Controller
         if(Auth::check()){
             $categories = Categories::all();
             $name = auth()->user()->name;
+            $type = auth()->user()->type;
             return view('dashboard',[
-                'name' => $name,   
+                'name' => $name,  
+                'type' => $type, 
                 'categories' => $categories
             ]);
         }

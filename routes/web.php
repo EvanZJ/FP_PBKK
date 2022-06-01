@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,6 @@ Route::get('things', function(){
 });
 
 Route::get('login/{locale}', [LocalizationController::class, 'index']);
+
+Route::get('/products/{category:slug}', [ProductsController::class, 'content'])->name('showproducts');
+Route::get('/item/{item:slug}', [ProductsController::class, 'detail'])->name('showdetail');

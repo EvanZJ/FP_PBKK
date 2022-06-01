@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('list_transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id');
+            $table->foreignID('furniture_id');
             $table->timestamps();
         });
     }
