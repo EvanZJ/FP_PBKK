@@ -4,7 +4,7 @@
 
 return [
     "welcome1" => "Login",
-    "welcome2" => "IKAE is a Swedish home furnishings retailer. In the winter of 2004, there were 364 IKAE stores in 46 countries around the world. The IKAE catalog containing information on IKAE products is estimated to be the store with the second widest distribution after Walmart",
+    "welcome2" => "IKAE is a Swedish home furnishings retailer. In the winter of 2004, there were 364 IKAE stores in 46 countries around the world. The IKAE catalog containing information on IKAE products is estimated to be the store with the second widest distribution after Walmart.",
 	"title" => "Log in",
     "title2" => "Register",
 	"profile" => [

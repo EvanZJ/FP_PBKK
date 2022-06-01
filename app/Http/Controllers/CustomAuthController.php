@@ -1,12 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Categories;
+use Illuminate\Http\Request;
+use App\Mail\WelcomeNewUserEmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Events\NewCustomerHasRegisteredEvent;
+
 class CustomAuthController extends Controller
 {
     public function index()
@@ -44,7 +48,16 @@ class CustomAuthController extends Controller
            
         $data = $request->all();
         $check = $this->create($data);
-         
+        
+        event(new NewCustomerHasRegisteredEvent($check));
+        
+
+        // // Register the account to newsletter
+        // dump('Registered to newsletter');
+
+        // // Slack notification to Admin
+        // dump('slack message here');
+
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 

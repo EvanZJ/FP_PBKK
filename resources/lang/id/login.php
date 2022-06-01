@@ -4,7 +4,7 @@
 
 return [
     "welcome1" => "Masuk",
-    "welcome2" => "IKAE adalah sebuah peritel perabot untuk rumah tangga dari Swedia. Pada musim dingin 2004, terdapat 364 toko IKAEdi 46 negara di berbagai belahan dunia. Katalog IKAE yang berisi info produk IKAE diperkirakan adalah Toko yang pendistribusiannya kedua terluas setelah Walmart",
+    "welcome2" => "IKAE adalah sebuah peritel perabot untuk rumah tangga dari Swedia. Pada musim dingin 2004, terdapat 364 toko IKAEdi 46 negara di berbagai belahan dunia. Katalog IKAE yang berisi info produk IKAE diperkirakan adalah Toko yang pendistribusiannya kedua terluas setelah Walmart.",
 	"title" => "Masuk",
     "title2" => "Daftar",
 	"profile" => [
