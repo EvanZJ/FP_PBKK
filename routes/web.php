@@ -33,7 +33,13 @@ Route::get('things', function(){
 
 Route::get('login/{locale}', [LocalizationController::class, 'index']);
 Route::get('/list-products', [ProductsController::class, 'listfurniture'])->name('list-products');
-Route::post('/update/{item:id}', [ProductsController::class, 'update'])->name('update-products');
+Route::post('/update/{id}', [ProductsController::class, 'updatedata'])->name('update-products');
+Route::delete('/delete/{id}', [ProductsController::class, 'deletedata'])->name('delete-products');
+
+Route::get('/list-categories', [ProductsController::class, 'listcategories'])->name('list-categories');
+Route::post('/update-categories/{id}', [ProductsController::class, 'updatecategories'])->name('update-categories');
+
+
 Route::get('/products/{category:slug}', [ProductsController::class, 'content'])->name('showproducts');
 Route::get('/item/{item:slug}', [ProductsController::class, 'detail'])->name('showdetail');
 Route::get('/add-to-cart', [ProductsController::class, 'addtocart'])->name('addtocart');

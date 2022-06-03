@@ -1,21 +1,28 @@
 @extends('layouts.navbar')
 @section('container')
-@if (Session::has('successful_edit'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-        <strong><i class="fa fa-check-circle"></i>Success!</strong>
-        <br>
-            Successfully Edited!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        </button>
-        <br>
-    </div>
-@endif
 <center><h3>Products</h3></center>
 <hr>
-@php
-    $it = 1;
-@endphp
 <div class="container">
+    @if (Session::has('successful_edit'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <br>
+                Successfully Edited!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+            <br>
+        </div>
+    @endif
+    @if (Session::has('successful_delete'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <br>
+                Successfully Deleted!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+            <br>
+        </div>
+    @endif
     <table class="table">
         <thead>
         <tr>
@@ -39,22 +46,22 @@
             <td style="text-align: center;">{{ $item->stock }}</td>
             <td>
                 <div class="d-flex justify-content-evenly">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}" data-bs-whatever="@mdo">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                         </svg>
                         Edit
                     </button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $item->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel{{ $item->id }}">Edit Product</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="form-edit" action="/update/{{ $item->id }}" method="post">
+                                    <form id="form-login{{ $item->id }}" action="{{ route('update-products', $item->id) }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Name:</label>
@@ -89,24 +96,44 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" form="form-edit">Submit</button>
+                                    <button type="submit" class="btn btn-primary" form="form-login{{ $item->id }}">Edit Data</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteBackdrop">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                         </svg>
-                        Edit
+                        Delete
                     </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Delete Products</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Do you sure want to delete?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="{{ route('delete-products', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </td>
         </tr>
-        @php
-            $it += 1;
-        @endphp
         @endforeach
         </tbody>
     </table>

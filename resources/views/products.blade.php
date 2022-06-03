@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="/item/{{ $item->slug }}">
+                        <a href="/item/{{ $item->slug }}" style="text-decoration: none">
                             <b>
                                 {{ $item->name }}
                             </b>
