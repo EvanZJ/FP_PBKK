@@ -13,15 +13,23 @@
                 {{--  <img src="/kursi-kayu/1.jpg" class="card-img-top" alt="...">  --}}
                 <div id="carouselExampleControls{{ $it }}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="/wp2163489.jpg" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item ">
-                        <img src="/outdoor1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="/gamingroom.png" class="d-block w-100" alt="...">
-                      </div>
+                        @php
+                            $at = 1;
+                        @endphp
+                        @foreach ($item->ImageFurniture as $images)
+                            @if ($at == 1)
+                                <div class="carousel-item active">
+                                    <img src="/{{ $item->slug }}/{{ $images->link }}" class="d-block w-100" alt="...">
+                                </div>
+                            @else
+                                <div class="carousel-item ">
+                                    <img src="/{{ $item->slug }}/{{ $images->link }}" class="d-block w-100" alt="...">
+                                </div>
+                            @endif
+                            @php
+                                $at += 1;
+                            @endphp
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ $it }}" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -34,15 +42,22 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <b>
-                            {{ $item->name }}
-                        </b>
+                        <a href="/item/{{ $item->slug }}">
+                            <b>
+                                {{ $item->name }}
+                            </b>
+                        </a>
                     </h5>
                     <p class="card-text">{{ $item->desc }}</p>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
                         <small class="text-muted">Stock : {{ $item->stock }}</small>
+                        <small>
+                            <a href="/">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </small>
                         <small>
                             <b>
                                 Price : {{ $item->price }}
@@ -55,32 +70,22 @@
         @php
             $it+=1;
         @endphp
-        {{--  <div class="card mb-3" style="max-width:100%;">
-            <div class="row g-0">
-                <div class="col-md-1 text-center">
-                    <img src="/kursi-kayu/1.jpg" width="100%" height = "100%" class="img-fluid rounded-start" alt="...">
-                </div>
-                
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $item->name }}</h5>
-                        <p class="card-text">
-                            <small>
-                                {{ $item->desc }}
-                            </small>
-                        </p>
-                        <p class="card-text">
-                            <b>
-                                Price : {{ $item->price }}
-                            </b>
-                        </p>
-                        <a href="/item/{{ $item->slug }}">
-                            <button type="button" class="btn btn-outline-primary">Primary</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>  --}}
     @endforeach
+    </div>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          </ul>
+        </footer>
     </div>
 @endsection

@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Categories;
 use App\Models\Furniture;
+use App\Models\ImageFurniture;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+    use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
@@ -85,6 +86,149 @@ class DatabaseSeeder extends Seeder
             'sold' => $faker->numberBetween($min = 10, $max = 900),
             'stock' =>  $faker->numberBetween($min = 100, $max = 9000),
         ]);
-
+        ImageFurniture::create([
+            'furniture_id' => 1,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 1,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 1,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 1,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '5.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 2,
+            'link' => '6.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '5.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 3,
+            'link' => '6.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '5.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 4,
+            'link' => '6.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '5.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '6.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 5,
+            'link' => '7.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '1.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '2.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '3.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '4.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '5.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '6.jpg'
+        ]);
+        ImageFurniture::create([
+            'furniture_id' => 6,
+            'link' => '7.jpg'
+        ]);
     }
 }
