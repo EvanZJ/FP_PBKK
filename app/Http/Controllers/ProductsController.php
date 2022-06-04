@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Furniture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 
 class ProductsController extends Controller
 {
@@ -86,6 +87,12 @@ class ProductsController extends Controller
         return redirect()->route('list-products')->with('successful_delete', 'Edit Furniture berhasil');
     }
 
+    public function deletecategories($id){
+        $categories = Categories::findOrFail($id);
+        $categories->delete();
+        return redirect()->route('list-categories')->with('successful_delete', 'Edit Categories berhasil');
+    }
+
     public function listcategories(){
         if(Auth::check()){
             $name = auth()->user()->name;
@@ -112,6 +119,31 @@ class ProductsController extends Controller
         $categories = Categories::findOrFail($id);
         $categories->update($validatedData);
         return redirect()->route('list-categories')->with('successful_edit', 'Edit Categories berhasil');
+    }
+
+    public function createdata(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'categories_id' => 'numeric|required',
+            'desc' => 'required|max:1000',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric', 
+        ]);
+        $validatedData = Arr::add($validatedData, 'sold', 0);
+        // return $validatedData;
+        Furniture::create($validatedData);
+        return redirect()->route('list-products')->with('successful_create', 'Create Product successful');
+    }
+
+    public function createcategories(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+        // return $validatedData;
+        Categories::create($validatedData);
+        return redirect()->route('list-categories')->with('successful_create', 'Create Product successful');
     }
     // public function addtocart();
 }

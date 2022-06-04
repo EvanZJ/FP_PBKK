@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Furniture extends Model
 {
     protected $guarded = ['id'];
+    protected $fillable = ['name', 'desc', 'price', 'slug', 'categories_id', 'sold', 'stock'];
     use HasFactory; 
 
     public function categories(){

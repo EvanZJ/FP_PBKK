@@ -35,9 +35,13 @@ Route::get('login/{locale}', [LocalizationController::class, 'index']);
 Route::get('/list-products', [ProductsController::class, 'listfurniture'])->name('list-products');
 Route::post('/update/{id}', [ProductsController::class, 'updatedata'])->name('update-products');
 Route::delete('/delete/{id}', [ProductsController::class, 'deletedata'])->name('delete-products');
+Route::post('/create', [ProductsController::class, 'createdata'])->name('create-products');
 
 Route::get('/list-categories', [ProductsController::class, 'listcategories'])->name('list-categories');
 Route::post('/update-categories/{id}', [ProductsController::class, 'updatecategories'])->name('update-categories');
+Route::post('/create-categories', [ProductsController::class, 'createcategories'])->name('create-categories');
+Route::delete('/delete-categories/{id}', [ProductsController::class, 'deletecategories'])->name('delete-categories');
+
 
 
 Route::get('/products/{category:slug}', [ProductsController::class, 'content'])->name('showproducts');
