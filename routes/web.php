@@ -49,3 +49,4 @@ Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
 Route::get('/add-to-cart/{id}', [ProductsController::class, 'addtocart'])->name('addtocart');
 Route::patch('/update-cart', [ProductsController::class, 'updatecart'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove.from.cart');
+Route::get('/checkout', [ProductsController::class, 'checkout'])->name('checkout');

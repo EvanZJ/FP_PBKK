@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendCheckoutEmail;
 use App\Models\Categories;
 use App\Models\Furniture;
 use Illuminate\Http\Request;
@@ -196,5 +197,22 @@ class ProductsController extends Controller
             }
             session()->flash('success', 'Product removed successfully');
         }
+    }
+
+    public function checkout(){
+        $product = session()->get('cart');
+        // return $product[1];
+        // foreach ($product as $item){
+        //     foreach ($item as $key => $value){
+        //         echo "$key = $value<br>";
+        //     }
+        // }
+        $name = auth()->user()->name;
+        $email = auth()->user()->email;
+        $data = [];
+        $data = Arr::add($data, 'name', $name);
+        $data = Arr::add($data, 'email', $email);
+        $emailjobs =  new SendCheckoutEmail($data, $product);
+        $this->dispatch($emailjobs);
     }
 }
