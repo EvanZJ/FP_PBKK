@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\ProductsController;
+use GuzzleHttp\Psr7\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +27,9 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
-Route::get('things', function(){
-    return view('testing');
-});
+// Route::get('things', function(){
+//     return view('testing');
+// });
 
 Route::get('login/{locale}', [LocalizationController::class, 'index']);
 Route::get('/list-products', [ProductsController::class, 'listfurniture'])->name('list-products');
@@ -43,7 +43,9 @@ Route::post('/create-categories', [ProductsController::class, 'createcategories'
 Route::delete('/delete-categories/{id}', [ProductsController::class, 'deletecategories'])->name('delete-categories');
 
 
-
 Route::get('/products/{category:slug}', [ProductsController::class, 'content'])->name('showproducts');
 Route::get('/item/{item:slug}', [ProductsController::class, 'detail'])->name('showdetail');
-Route::get('/add-to-cart', [ProductsController::class, 'addtocart'])->name('addtocart');
+Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
+Route::get('/add-to-cart/{id}', [ProductsController::class, 'addtocart'])->name('addtocart');
+Route::patch('/update-cart', [ProductsController::class, 'updatecart'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove.from.cart');

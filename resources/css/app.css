@@ -12,3 +12,8 @@ body {
 a{
     text-decoration:none;
 }
+
+.dropdown-menu {
+    width: 300px !important;
+    height: 400px !important;
+}

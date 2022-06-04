@@ -7,6 +7,7 @@ use App\Models\Furniture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 
 class ProductsController extends Controller
 {
@@ -41,7 +42,7 @@ class ProductsController extends Controller
             $name = auth()->user()->name;
             $type = auth()->user()->type;
             $categories = Categories::all();
-            if ($type == 1) {
+            if ($type == 2) {
                 $products = Furniture::all();
                 return view('listproducts',[
                     "type" => $type, 
@@ -98,7 +99,7 @@ class ProductsController extends Controller
             $name = auth()->user()->name;
             $type = auth()->user()->type;
             $categories = Categories::all();
-            if ($type == 1) {
+            if ($type == 2) {
                 return view('listcategories',[
                     "type" => $type, 
                     "name" => $name,
@@ -145,5 +146,55 @@ class ProductsController extends Controller
         Categories::create($validatedData);
         return redirect()->route('list-categories')->with('successful_create', 'Create Product successful');
     }
-    // public function addtocart();
+
+    public function addtocart($id){
+        $product = Furniture::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->slug,
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }   
+
+    public function cart(){
+        if(Auth::check()){
+            $categories = Categories::all();
+            $name = auth()->user()->name;
+            $type = auth()->user()->type;
+            return view('cart',[
+                'name' => $name,  
+                'type' => $type, 
+                'categories' => $categories
+            ]);
+        }
+    }
+
+    public function updatecart(Request $request){
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('successful_cart', 'Cart updated successfully');
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
+    }
 }

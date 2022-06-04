@@ -9,6 +9,9 @@
     <title>Document</title>
     <link href="http://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <style>
         @import url('http://fonts.cdnfonts.com/css/sf-pro-display');
     </style>
@@ -53,7 +56,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
+                            <a href="{{ route('cart') }}" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" style="color:#DCCE23">{{__('login.navOrder')}}</span></a>
                         </li>
                         <li>
@@ -87,5 +90,6 @@
             </div>
         </div>
     </div>
+    @yield('scripts')
 </body>
 </html>
