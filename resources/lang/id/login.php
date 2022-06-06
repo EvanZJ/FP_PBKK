@@ -40,6 +40,10 @@ return [
     "edit-data-categories" => "Kategori",
     "edit-data-price" => 'Harga',
     "edit-data-stock" => 'Stok',
+    "edit-data-type" => 'Tipe',
+    "edit-data-action" => 'Aksi',
+
+    "create-category" => 'Buat kategori baru',
 
     "listcategories-success" => 'Sukses!',
     "listcategories-successedit" => 'Edit data sukses!',

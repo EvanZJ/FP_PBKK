@@ -100,7 +100,7 @@
             <th scope="col" style="text-align: center;">{{__('login.edit-data-categories')}}</th>
             <th scope="col" style="text-align: center;">{{__('login.edit-data-price')}}</th>
             <th scope="col" style="text-align: center;">{{__('login.edit-data-stock')}}</th>
-            <th scope="col" style="text-align: center;">Action</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-action')}}</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">

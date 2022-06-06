@@ -67,7 +67,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('login.listcategories-button')}}</button>
-                <button type="submit" class="btn btn-primary" form="form-create">{{__('login.crete-category')}}</button>
+                <button type="submit" class="btn btn-primary" form="form-create">{{__('login.create-category')}}</button>
             </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                 <th scope="col" style="text-align: center;">#</th>
                 <th scope="col" style="text-align: center;">{{__('login.edit-data-name')}}</th>
                 <th scope="col" style="text-align: center;">{{__('login.edit-data-slug')}}</th>
-                <th scope="col" style="text-align: center;">Action</th>
+                <th scope="col" style="text-align: center;">{{__('login.edit-data-action')}}</th>
             </tr>
         </thead>
         <tbody>

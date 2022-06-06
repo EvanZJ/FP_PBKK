@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
@@ -41,6 +42,10 @@ Route::get('/list-categories', [ProductsController::class, 'listcategories'])->n
 Route::post('/update-categories/{id}', [ProductsController::class, 'updatecategories'])->name('update-categories');
 Route::post('/create-categories', [ProductsController::class, 'createcategories'])->name('create-categories');
 Route::delete('/delete-categories/{id}', [ProductsController::class, 'deletecategories'])->name('delete-categories');
+
+Route::get('/account', [AccountController::class, 'list'])->name('account');
+Route::post('/update-account/{id}', [AccountController::class, 'updateaccount'])->name('update-account');
+Route::delete('/delete-account/{id}', [AccountController::class, 'deleteaccount'])->name('delete-account');
 
 
 Route::get('/products/{category:slug}', [ProductsController::class, 'content'])->name('showproducts');

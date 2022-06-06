@@ -237,17 +237,17 @@ class ProductsController extends Controller
         
         $request->session()->forget('cart');
         
-        return redirect()->route('dashboard')->with('successfully_checkout', 'Finally checked out!');
         // echo "$total <br>";
         // echo "$maxVal <br>";
         // echo "$userid";
-        // $name = auth()->user()->name;
-        // $email = auth()->user()->email;
-        // $data = [];
-        // $data = Arr::add($data, 'name', $name);
-        // $data = Arr::add($data, 'email', $email);
-        // $emailjobs =  new SendCheckoutEmail($data, $product);
-        // $this->dispatch($emailjobs);
+        $name = auth()->user()->name;
+        $email = auth()->user()->email;
+        $data = [];
+        $data = Arr::add($data, 'name', $name);
+        $data = Arr::add($data, 'email', $email);
+        $emailjobs = new SendCheckoutEmail($data, $product);
+        $this->dispatch($emailjobs);
+        return redirect()->route('dashboard')->with('successfully_checkout', 'Finally checked out!');
     }
 
     public function history(){

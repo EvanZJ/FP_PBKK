@@ -22,7 +22,7 @@
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color:#222D64">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <a href="{{ route('dashboard') }}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <img src="/logopbkk.png" alt="" width="100" height="100" class="d-inline-block align-text-top">
                         </a>
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +35,7 @@
                             <span class="d-none d-sm-inline mx-1 " style="color:#DCCE23">{{ $name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="color:#DCCE23">
-                            <li><a class="dropdown-item" href="#">{{__('login.navSetting')}}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('account') }}">{{__('login.navSetting')}}</a></li>
                             <li><a class="dropdown-item" href="#">{{__('login.navProfile')}}</a></li>
                             <li>
                                 <hr class="dropdown-divider">

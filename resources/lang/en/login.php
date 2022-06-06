@@ -40,6 +40,10 @@ return [
     "edit-data-categories" => "Categories",
     "edit-data-price" => 'Price',
     "edit-data-stock" => 'Stock',
+    "edit-data-type" => 'Type',
+    "edit-data-action" => 'Action',
+    
+    "create-category" => 'Create Category',
 
     "listcategories-success" => 'Success!',
     "listcategories-successedit" => 'Successfully Edited!',
