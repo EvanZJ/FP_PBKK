@@ -4,10 +4,10 @@
 <table id="cart" class="table table-hover table-condensed">
     <thead>
         <tr>
-            <th style="width:50%">Product</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
+            <th style="width:50%">{{__('login.edit-data-title')}}</th>
+            <th style="width:10%">{{__('login.edit-data-title')}}</th>
+            <th style="width:8%">{{__('login.edit-data-price')}}</th>
+            <th style="width:22%" class="text-center">{{__('login.cart')}}</th>
             <th style="width:10%"></th>
         </tr>
     </thead>
@@ -39,13 +39,13 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
+            <td colspan="5" class="text-right"><h3><strong>{{__('login.cart-total')}} ${{ $total }}</strong></h3></td>
         </tr>
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ route('dashboard') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <a href="{{ route('dashboard') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> {{__('login.cart-cons')}}</a>
                 <a href="{{ route('checkout') }}">
-                    <button class="btn btn-success">Checkout</button>
+                    <button class="btn btn-success">{{__('login.cart-checkout')}}</button>
                 </a>
             </td>
         </tr>

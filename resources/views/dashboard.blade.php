@@ -3,9 +3,9 @@
 @section('container')
     @if (Session::has('successful_login'))
     <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-        <strong><i class="fa fa-check-circle"></i>Success!</strong>
+        <strong><i class="fa fa-check-circle"></i>{{__('login.dashWelcome')}}</strong>
         <br>
-            Successfully Login!
+          {{__('login.dashWelcome1')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         </button>
         <br>
@@ -13,9 +13,9 @@
     @endif
     @if (Session::has('not_admin'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-            <strong><i class="fa fa-check-circle"></i>Not allowed! You are not admin!</strong>
+            <strong><i class="fa fa-check-circle"></i> {{__('login.dashWelcome2')}}</strong>
             <br>
-                Only admin can access this!
+                {{__('login.dashWelcome3')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
         </div>
