@@ -3,9 +3,9 @@
 @section('container')
 @if (Session::has('successful_cart'))
     <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-        <strong><i class="fa fa-check-circle"></i>Success!</strong>
+        <strong><i class="fa fa-check-circle"></i>{{__('login.listcategories-success')}}</strong>
         <br>
-            Successfully added to cart!
+            {{__('login.listcategories-successedit')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         </button>
         <br>
@@ -23,7 +23,7 @@
         {{--  <div class="col-lg-12 col-sm-12 col-12 main-section">  --}}
         <div class="dropdown">
             <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{__('login.products-cart')}} <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
@@ -55,10 +55,10 @@
                                   <h5 class="card-title">{{ $details['name'] }}</h5>
                                   <div class="justify-content-between" style="width: 100%">
                                     <small>
-                                        Price : {{ $details['price'] }}
+                                        {{__('login.edit-data-price')}} : {{ $details['price'] }}
                                     </small>
                                     <small>
-                                        Quantity:{{ $details['quantity'] }}
+                                        {{__('login.products-quantity')}}:{{ $details['quantity'] }}
                                     </small>
                                   </div>
                                   {{--  <span class="price text-info"> ${{ $details['price'] }}</span> <span class="count"> Quantity:{{ $details['quantity'] }}</span>                                </div>  --}}
@@ -89,7 +89,7 @@
                 <li>
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                            <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
+                            <a href="{{ route('cart') }}" class="btn btn-primary btn-block">{{__('login.products-viewall')}}</a>
                         </div>
                     </div>
                 </li>
@@ -152,7 +152,7 @@
                         <small class="text-muted">Stock : {{ $item->stock }}</small>
                         <small>
                             <a href="{{ route('addtocart', $item->id) }}">
-                                <button type="button" class="btn btn-success">Add to Cart</button>
+                                <button type="button" class="btn btn-success">{{__('login.products-add-cart')}}</button>
                             </a>
                         </small>
                         <small>

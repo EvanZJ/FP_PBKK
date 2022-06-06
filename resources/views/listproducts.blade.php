@@ -5,9 +5,9 @@
 <div class="container">
     @if (Session::has('successful_edit'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <strong><i class="fa fa-check-circle"></i>{{__('login.listcategories-success')}}</strong>
             <br>
-                Successfully Edited!
+                {{__('login.listcategories-successedit')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
             <br>
@@ -15,9 +15,9 @@
     @endif
     @if (Session::has('successful_delete'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <strong><i class="fa fa-check-circle"></i>{{__('login.listcategories-success')}}</strong>
             <br>
-                Successfully Deleted!
+                {{__('login.listcategories-successdel')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
             <br>
@@ -25,9 +25,9 @@
     @endif
     @if (Session::has('successful_create'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
-            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <strong><i class="fa fa-check-circle"></i>{{__('login.listcategories-success')}}</strong>
             <br>
-                Successfully Created!
+                {{__('login.listcategories-successcreate')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
             <br>
@@ -38,7 +38,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
         </svg>
-        Create New Products
+        {{__('login.listproduct-create-product')}}
     </button>
 
     <!-- Modal -->
@@ -46,24 +46,24 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Create Furniture</h5>
+                <h5 class="modal-title" id="createModalLabel">{{__('login.listcategories-crete-furniture')}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="form-create" action="{{ route('create-products') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <label for="recipient-name" class="col-form-label">{{__('login.edit-data-name')}}:</label>
                         <input type="text" class="form-control" id="name" name="name"
                         value="">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Slug:</label>
+                        <label for="message-text" class="col-form-label">{{__('login.edit-data-slug')}}:</label>
                         <input type="text" class="form-control" id="slug" name="slug"
                         value="">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Categories:</label>
+                        <label for="message-text" class="col-form-label">{{__('login.edit-data-categories')}}:</label>
                         <input type="number" class="form-control" id="categories_id" name="categories_id"
                         value="">
                     </div>
@@ -72,20 +72,20 @@
                         <input type="text" class="form-control" id="desc" name="desc" value=""></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Price:</label>
+                        <label for="message-text" class="col-form-label">{{__('login.edit-data-price')}}:</label>
                         <input type="number" class="form-control" id="price" name="price"
                         value="">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Stock:</label>
+                        <label for="message-text" class="col-form-label">{{__('login.edit-data-stock')}}:</label>
                         <input type="number" class="form-control" id="stock" name="stock"
                         value="">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" form="form-create">Create New Furniture</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('login.listcategories-button')}}</button>
+                <button type="submit" class="btn btn-primary" form="form-create">{{__('login.listcategories-crete-furniture')}}</button>
             </div>
             </div>
         </div>
@@ -95,11 +95,11 @@
         <thead>
         <tr>
             <th scope="col" style="text-align: center;">#</th>
-            <th scope="col" style="text-align: center;">Name</th>
-            <th scope="col" style="text-align: center;">Slug</th>
-            <th scope="col" style="text-align: center;">Categories</th>
-            <th scope="col" style="text-align: center;">Price</th>
-            <th scope="col" style="text-align: center;">Stock</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-name')}}</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-slug')}}</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-categories')}}</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-price')}}</th>
+            <th scope="col" style="text-align: center;">{{__('login.edit-data-stock')}}</th>
             <th scope="col" style="text-align: center;">Action</th>
         </tr>
         </thead>
@@ -125,24 +125,24 @@
                         <div class="modal-dialog modal-dialog-scrollable modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel{{ $item->id }}">Edit Product</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel{{ $item->id }}">{{__('login.listprroduct-edit-product')}}</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form id="form-login{{ $item->id }}" action="{{ route('update-products', $item->id) }}" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Name:</label>
+                                            <label for="recipient-name" class="col-form-label">{{__('login.edit-data-name')}}:</label>
                                             <input type="text" class="form-control" id="name" name="name"
                                              value="{{ $item->name ? $item->name : 'No data!' }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Slug:</label>
+                                            <label for="message-text" class="col-form-label">{{__('login.edit-data-slug')}}:</label>
                                             <input type="text" class="form-control" id="slug" name="slug"
                                              value="{{ $item->slug ? $item->slug : 'No data!' }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Categories:</label>
+                                            <label for="message-text" class="col-form-label">{{__('login.edit-data-categories')}}:</label>
                                             <input type="number" class="form-control" id="categories_id" name="categories_id"
                                              value="{{ $item->categories_id ? $item->categories_id : 'No data!' }}">
                                         </div>
@@ -151,19 +151,19 @@
                                             <input type="text" class="form-control" id="desc" name="desc" value="{{ $item->desc ? $item->desc : 'No data!' }}"></textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Price:</label>
+                                            <label for="message-text" class="col-form-label">{{__('login.edit-data-price')}}:</label>
                                             <input type="number" class="form-control" id="price" name="price"
                                              value="{{ $item->price ? $item->price : 'No data!' }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Stock:</label>
+                                            <label for="message-text" class="col-form-label">{{__('login.edit-data-stock')}}:</label>
                                             <input type="number" class="form-control" id="stock" name="stock"
                                              value="{{ $item->stock ? $item->stock : 'No data!' }}">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('login.listcategories-button')}}</button>
                                     <button type="submit" class="btn btn-primary" form="form-login{{ $item->id }}">Edit Data</button>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                         </svg>
-                        Delete
+                            {{__('login.listcategories-del')}}
                     </button>
 
                     <!-- Modal -->
@@ -182,18 +182,18 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel{{ $item->id }}">Delete Products</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel{{ $item->id }}">{{__('login.listcategories-del1')}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Do you sure want to delete?
+                            {{__('login.listcategories-del2')}}
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('login.listcategories-button')}}</button>
                             <form action="{{ route('delete-products', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button submit" class="btn btn-danger">Delete {{ $item->id }}</button>
+                                <button type="button submit" class="btn btn-danger">{{__('login.listcategories-del')}} {{ $item->id }}</button>
                             </form>
                         </div>
                         </div>
