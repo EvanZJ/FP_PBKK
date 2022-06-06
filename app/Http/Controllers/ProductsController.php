@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Jobs\SendCheckoutEmail;
 use App\Models\Categories;
 use App\Models\Furniture;
+use App\Models\list_transaction;
+use App\Models\transaction;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use PDO;
 
 class ProductsController extends Controller
 {
@@ -159,10 +163,11 @@ class ProductsController extends Controller
                 "quantity" => 1,
                 "price" => $product->price,
                 "image" => $product->slug,
+                "id" => $product->id,
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('successful_cart', 'Product added to cart successfully!');
     }   
 
     public function cart(){
@@ -199,20 +204,65 @@ class ProductsController extends Controller
         }
     }
 
-    public function checkout(){
+    public function checkout(Request $request){
         $product = session()->get('cart');
-        // return $product[1];
-        // foreach ($product as $item){
-        //     foreach ($item as $key => $value){
-        //         echo "$key = $value<br>";
-        //     }
-        // }
-        $name = auth()->user()->name;
-        $email = auth()->user()->email;
-        $data = [];
-        $data = Arr::add($data, 'name', $name);
-        $data = Arr::add($data, 'email', $email);
-        $emailjobs =  new SendCheckoutEmail($data, $product);
-        $this->dispatch($emailjobs);
+        // return $product == 0;
+        if($product == 0){
+            return redirect()->route('cart')->with('no_item', 'no item');
+        }
+        $total = 0;
+        $userid = auth()->user()->id;
+        $maxVal = transaction::orderBy('id', 'desc')->value('id');
+        $maxVal += 1;
+        foreach ($product as $item){
+            $total += ($item['price'] * $item['quantity']);
+
+            // foreach ($item as $key => $value){
+            //     echo "$key = $value<br>";
+            // }
+            // echo "$item['price']<br>";
+            list_transaction::create([
+                'transaction_id' => $maxVal,
+                'furniture_id' => $item['id'],
+                'amount' => $item['quantity'],
+            ]);
+            $decrem = Furniture::find($item['id']);
+            $oper = $decrem->stock - $item['quantity'];
+            $decrem->update(['stock' => $oper]);
+        }
+        transaction::create([
+            'total_price' => $total,
+            'user_id' => $userid,
+        ]);
+        
+        $request->session()->forget('cart');
+        
+        return redirect()->route('dashboard')->with('successfully_checkout', 'Finally checked out!');
+        // echo "$total <br>";
+        // echo "$maxVal <br>";
+        // echo "$userid";
+        // $name = auth()->user()->name;
+        // $email = auth()->user()->email;
+        // $data = [];
+        // $data = Arr::add($data, 'name', $name);
+        // $data = Arr::add($data, 'email', $email);
+        // $emailjobs =  new SendCheckoutEmail($data, $product);
+        // $this->dispatch($emailjobs);
+    }
+
+    public function history(){
+        if(Auth::check()){
+            $name = auth()->user()->name;
+            $type = auth()->user()->type;
+            $id =  auth()->user()->id;
+            $transaction = transaction::where('user_id', '=', $id)->get();
+            $categories = Categories::all();
+            return view('history',[
+                'name' => $name,  
+                'type' => $type, 
+                'categories' => $categories,
+                'transaction' => $transaction,
+            ]);
+        }
     }
 }

@@ -51,6 +51,9 @@
                 Total Price : {{ $total }}
             </p>
         </li>
+        <li>
+            <img src="/gamingroom.png" alt="">
+        </li>
     </ul>
 </body>
 </html>

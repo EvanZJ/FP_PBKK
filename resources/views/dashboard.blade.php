@@ -21,6 +21,16 @@
         </div>
         <br>
     @endif
+    @if (Session::has('successfully_checkout'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
+            <strong><i class="fa fa-check-circle"></i>Success!</strong>
+            <br>
+                  Successfully Check Out!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+        </div>
+        <br>
+    @endif
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">

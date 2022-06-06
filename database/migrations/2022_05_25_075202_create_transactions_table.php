@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->decimal('total_price', $precision=10, $scale=2);
-            $table->foreignId('users_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

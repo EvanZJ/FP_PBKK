@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class transaction extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['total_price', 'user_id'];
     public function users(){
         return $this->belongsTo(User::class);
     }

@@ -5,7 +5,7 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
         <strong><i class="fa fa-check-circle"></i>Success!</strong>
         <br>
-            Successfully Edited!
+            Successfully added to cart!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         </button>
         <br>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('transaction_id');
             $table->foreignID('furniture_id');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
