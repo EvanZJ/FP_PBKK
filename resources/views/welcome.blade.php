@@ -31,6 +31,8 @@
                 @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
+                        
+                        @else
                         <nav class="navbar navbar-expand-lg navbar-light shadow sm:rounded-lg" style="background-image: linear-gradient(#debd03, #f3e073); margin-right: 15px">
                             <div class="container-fluid">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,8 +61,6 @@
                                 </div>
                             </div>
                         </nav>
-                        @else
-                        
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                             @endif

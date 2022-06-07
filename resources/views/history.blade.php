@@ -4,7 +4,7 @@
 <div class="container">
     <div class="accordion" id="accordionExample">
         <h1>
-            Transaction
+            {{__('login.history-title')}}
         </h1>
         <hr>
         @php
@@ -14,7 +14,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $it }}">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $it }}" aria-expanded="true" aria-controls="collapseOne">
-                    Transaction : {{ $it }}
+                        {{__('login.history-title')}} : {{ $it }}
                     <br>
                     <br>
                     {{ $item->created_at->diffForHumans() }}
@@ -26,9 +26,9 @@
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">{{__('login.history-image')}}</th>
+                                <th scope="col">{{__('login.history-item')}}</th>
+                                <th scope="col">{{__('login.history-amount')}}</th>
                               </tr>
                             </thead>
                             <tbody>

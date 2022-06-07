@@ -5,7 +5,7 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%; height:auto;">
         <strong><i class="fa fa-check-circle"></i>{{__('login.listcategories-success')}}</strong>
         <br>
-            {{__('login.listcategories-successedit')}}
+            {{__('login.product-successtambah')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         </button>
         <br>
@@ -157,7 +157,7 @@
                         </small>
                         <small>
                             <b>
-                                Price : {{ $item->price }}
+                                {{__('login.edit-data-price')}} : {{ $item->price }}
                             </b>
                         </small>
                     </div>

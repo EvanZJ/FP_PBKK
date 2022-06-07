@@ -63,9 +63,18 @@ return [
     'products-quantity' => 'Quantity',
     'products-viewall' => 'View all',
     'products-add-cart' => 'Add to Cart',
+    "product-successtambah" => 'Successfully Add Item to Cart',
 
+    'cart-title' => 'Cart',
     'cart' => 'Subtotal',
     'cart-total' => 'Total',
     'cart-cons' => 'Continue Shopping',
     'cart-checkout' => 'Checkout',
+    'cart-no-item' => 'Nothing to checkout!',
+    'card-failed' => 'Failed!',
+
+    'history-title' => 'Transaction',
+    'history-image' => 'Image',
+    'history-item' => 'Item',
+    'history-amount' => 'Amount',
 ];

@@ -68,9 +68,18 @@ return [
     'products-quantity' => 'Jumlah',
     'products-viewall' => 'Lihat semua',
     'products-add-cart' => 'Tambah ke keranjang',
+    "product-successtambah" => 'Item sukses ditambah ke keranjang',
 
+    'cart-title' => 'Keranjang',
     'cart' => 'Subtotal',
     'cart-total' => 'Total',
     'cart-cons' => 'Lanjutkan belanja',
     'cart-checkout' => 'Checkout',
+    'cart-no-item' => 'Belum ada barang untuk di checkout!',
+    'card-failed' => 'Gagal!',
+
+    'history-title' => 'Transaksi',
+    'history-image' => 'Gambar',
+    'history-item' => 'Barang',
+    'history-amount' => 'Jumlah',
 ];
